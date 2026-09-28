@@ -281,7 +281,6 @@ class LibraryPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 14),
 
-                      // Informasi Buku
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -307,7 +306,6 @@ class LibraryPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 6),
 
-                            // Judul Buku
                             Text(
                               book.title,
                               style: const TextStyle(
@@ -321,7 +319,6 @@ class LibraryPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 3),
 
-                            // Penulis
                             Text(
                               book.author,
                               style: const TextStyle(
@@ -367,7 +364,6 @@ class LibraryPage extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 12),
 
-                                // Tahun
                                 Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [

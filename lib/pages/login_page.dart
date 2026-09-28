@@ -145,7 +145,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 28),
 
-                  // Container Kartu Form Input
                   Container(
                     padding: const EdgeInsets.all(22),
                     decoration: BoxDecoration(
@@ -240,7 +239,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         const SizedBox(height: 22),
 
-                        // Tombol Utama Soft Pink
                         ElevatedButton(
                           onPressed: _login,
                           style: ElevatedButton.styleFrom(
@@ -273,7 +271,6 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 18),
 
-                  // Demo Account Info Card
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
                     decoration: BoxDecoration(

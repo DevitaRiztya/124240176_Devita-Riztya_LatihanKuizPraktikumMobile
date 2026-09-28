@@ -107,7 +107,6 @@ class BookDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // Judul Buku
             Text(
               book.title,
               style: const TextStyle(
@@ -120,7 +119,6 @@ class BookDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 6),
 
-            // Penulis & Tahun
             Row(
               children: [
                 const Icon(
@@ -143,7 +141,6 @@ class BookDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 18),
 
-            // Quick Info Badges (Rating, Pages, Genre)
             Row(
               children: [
                 Expanded(
@@ -179,7 +176,6 @@ class BookDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // Card Detail Informasi
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
