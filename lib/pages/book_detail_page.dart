@@ -9,8 +9,19 @@ class BookDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFF8FA),
       appBar: AppBar(
-        title: const Text('Detail Buku'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        title: const Text(
+          'Detail Buku',
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF1E293B),
+          ),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -23,16 +34,16 @@ class BookDetailPage extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF1F5F9),
+                  color: const Color(0xFFFDF2F8),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xFFE2E8F0)),
+                  border: Border.all(color: const Color(0xFFFCE7F3)),
                 ),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: const [
                       BoxShadow(
-                        color: Color(0x1F000000),
+                        color: Color(0x18EC4899),
                         blurRadius: 16,
                         offset: Offset(0, 8),
                       ),
@@ -49,16 +60,23 @@ class BookDetailPage extends StatelessWidget {
                         return Container(
                           height: 220,
                           width: 150,
-                          color: const Color(0xFFE2E8F0),
+                          color: const Color(0xFFFCE7F3),
                           child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.menu_book_rounded, size: 48, color: Color(0xFF94A3B8)),
+                              Icon(
+                                Icons.menu_book_rounded,
+                                size: 48,
+                                color: Color(0xFFF472B6),
+                              ),
                               SizedBox(height: 8),
                               Text(
                                 'Cover tidak tersedia',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 11, color: Color(0xFF64748B)),
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  color: Color(0xFFDB2777),
+                                ),
                               ),
                             ],
                           ),
@@ -69,14 +87,14 @@ class BookDetailPage extends StatelessWidget {
                         return Container(
                           height: 220,
                           width: 150,
-                          color: const Color(0xFFF8FAFC),
+                          color: const Color(0xFFFFF9FA),
                           child: const Center(
                             child: SizedBox(
                               width: 28,
                               height: 28,
                               child: CircularProgressIndicator(
                                 strokeWidth: 2.5,
-                                color: Color(0xFF2563EB),
+                                color: Color(0xFFEC4899),
                               ),
                             ),
                           ),
@@ -93,9 +111,9 @@ class BookDetailPage extends StatelessWidget {
             Text(
               book.title,
               style: const TextStyle(
-                fontSize: 22,
+                fontSize: 21,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF0F172A),
+                color: Color(0xFF1E293B),
                 height: 1.3,
                 letterSpacing: -0.3,
               ),
@@ -105,13 +123,17 @@ class BookDetailPage extends StatelessWidget {
             // Penulis & Tahun
             Row(
               children: [
-                const Icon(Icons.person_outline_rounded, size: 16, color: Color(0xFF64748B)),
-                const SizedBox(width: 4),
+                const Icon(
+                  Icons.person_outline_rounded,
+                  size: 16,
+                  color: Color(0xFFEC4899),
+                ),
+                const SizedBox(width: 5),
                 Expanded(
                   child: Text(
                     '${book.author} • ${book.year}',
                     style: const TextStyle(
-                      fontSize: 14,
+                      fontSize: 13.5,
                       color: Color(0xFF64748B),
                       fontWeight: FontWeight.w500,
                     ),
@@ -121,13 +143,14 @@ class BookDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 18),
 
+            // Quick Info Badges (Rating, Pages, Genre)
             Row(
               children: [
                 Expanded(
                   child: _buildQuickInfoItem(
                     icon: Icons.star_rounded,
-                    iconColor: const Color(0xFFD97706),
-                    bgColor: const Color(0xFFFEF3C7),
+                    iconColor: const Color(0xFFEC4899),
+                    bgColor: const Color(0xFFFDF2F8),
                     label: 'Rating',
                     value: '${book.rating}',
                   ),
@@ -136,8 +159,8 @@ class BookDetailPage extends StatelessWidget {
                 Expanded(
                   child: _buildQuickInfoItem(
                     icon: Icons.auto_stories_rounded,
-                    iconColor: const Color(0xFF2563EB),
-                    bgColor: const Color(0xFFEFF6FF),
+                    iconColor: const Color(0xFFEC4899),
+                    bgColor: const Color(0xFFFDF2F8),
                     label: 'Halaman',
                     value: '${book.pages}',
                   ),
@@ -146,8 +169,8 @@ class BookDetailPage extends StatelessWidget {
                 Expanded(
                   child: _buildQuickInfoItem(
                     icon: Icons.bookmark_border_rounded,
-                    iconColor: const Color(0xFF059669),
-                    bgColor: const Color(0xFFECFDF5),
+                    iconColor: const Color(0xFFEC4899),
+                    bgColor: const Color(0xFFFDF2F8),
                     label: 'Genre',
                     value: book.genre,
                   ),
@@ -156,11 +179,12 @@ class BookDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
+            // Card Detail Informasi
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFFE2E8F0)),
+                border: Border.all(color: const Color(0xFFFCE7F3)),
                 boxShadow: const [
                   BoxShadow(
                     color: Color(0x06000000),
@@ -176,33 +200,44 @@ class BookDetailPage extends StatelessWidget {
                     label: 'Penerbit',
                     value: book.publisher,
                   ),
-                  const Divider(height: 1, thickness: 1, color: Color(0xFFF1F5F9)),
+                  const Divider(height: 1, thickness: 1, color: Color(0xFFFFF1F2)),
                   _buildDetailRow(
                     icon: Icons.calendar_today_outlined,
                     label: 'Tahun Terbit',
                     value: '${book.year}',
                   ),
-                  const Divider(height: 1, thickness: 1, color: Color(0xFFF1F5F9)),
+                  const Divider(height: 1, thickness: 1, color: Color(0xFFFFF1F2)),
                   _buildDetailRow(
                     icon: Icons.category_outlined,
                     label: 'Genre',
                     value: book.genre,
                   ),
+                  const Divider(height: 1, thickness: 1, color: Color(0xFFFFF1F2)),
+                  _buildDetailRow(
+                    icon: Icons.menu_book_rounded,
+                    label: 'Jumlah Halaman',
+                    value: '${book.pages} Halaman',
+                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 22),
 
+            // Section Header Sinopsis
             const Row(
               children: [
-                Icon(Icons.subject_rounded, size: 20, color: Color(0xFF2563EB)),
+                Icon(
+                  Icons.import_contacts_rounded,
+                  size: 19,
+                  color: Color(0xFFEC4899),
+                ),
                 SizedBox(width: 8),
                 Text(
                   'Sinopsis Buku',
                   style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 16.5,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F172A),
+                    color: Color(0xFF1E293B),
                     letterSpacing: -0.2,
                   ),
                 ),
@@ -210,20 +245,27 @@ class BookDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
-            // Deskripsi / Sinopsis
+            // Container Deskripsi Sinopsis
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: const Color(0xFFE2E8F0)),
+                border: Border.all(color: const Color(0xFFFCE7F3)),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0x04000000),
+                    blurRadius: 6,
+                    offset: Offset(0, 2),
+                  ),
+                ],
               ),
               child: Text(
                 book.description,
                 textAlign: TextAlign.justify,
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 13.5,
                   height: 1.6,
                   color: Color(0xFF334155),
                   letterSpacing: 0.1,
@@ -249,7 +291,14 @@ class BookDetailPage extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFE2E8F0)),
+        border: Border.all(color: const Color(0xFFFCE7F3)),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x04000000),
+            blurRadius: 6,
+            offset: Offset(0, 2),
+          ),
+        ],
       ),
       child: Column(
         children: [
@@ -278,7 +327,7 @@ class BookDetailPage extends StatelessWidget {
             style: const TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF0F172A),
+              color: Color(0xFF1E293B),
             ),
           ),
         ],
@@ -286,13 +335,16 @@ class BookDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildDetailRow(
-      {required IconData icon, required String label, required String value}) {
+  Widget _buildDetailRow({
+    required IconData icon,
+    required String label,
+    required String value,
+  }) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 13.0),
       child: Row(
         children: [
-          Icon(icon, size: 18, color: const Color(0xFF64748B)),
+          Icon(icon, size: 18, color: const Color(0xFFF472B6)),
           const SizedBox(width: 12),
           Text(
             label,
@@ -309,7 +361,7 @@ class BookDetailPage extends StatelessWidget {
             style: const TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF0F172A),
+              color: Color(0xFF1E293B),
             ),
           ),
         ],
@@ -317,4 +369,3 @@ class BookDetailPage extends StatelessWidget {
     );
   }
 }
-

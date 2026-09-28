@@ -15,17 +15,18 @@ class LibraryPage extends StatelessWidget {
           surfaceTintColor: Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
+            side: const BorderSide(color: Color(0xFFFCE7F3)),
           ),
           title: const Row(
             children: [
-              Icon(Icons.logout_rounded, color: Color(0xFFDC2626), size: 22),
+              Icon(Icons.logout_rounded, color: Color(0xFFEC4899), size: 22),
               SizedBox(width: 8),
               Text(
                 'Konfirmasi Logout',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 17,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F172A),
+                  color: Color(0xFF1E293B),
                 ),
               ),
             ],
@@ -33,15 +34,15 @@ class LibraryPage extends StatelessWidget {
           content: const Text(
             'Apakah Anda yakin ingin keluar dari aplikasi?',
             style: TextStyle(
-              fontSize: 14,
-              color: Color(0xFF475569),
+              fontSize: 13.5,
+              color: Color(0xFF64748B),
             ),
           ),
           actionsPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pop(dialogContext); // Tutup dialog
+                Navigator.pop(dialogContext);
               },
               style: TextButton.styleFrom(
                 foregroundColor: const Color(0xFF64748B),
@@ -51,17 +52,16 @@ class LibraryPage extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFDC2626),
+                backgroundColor: const Color(0xFFEC4899),
                 foregroundColor: Colors.white,
                 elevation: 0,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
               onPressed: () {
-                Navigator.pop(dialogContext); // Tutup dialog
-                // Kembali ke LoginPage dan hapus seluruh route sebelumnya
+                Navigator.pop(dialogContext);
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginPage()),
@@ -78,7 +78,7 @@ class LibraryPage extends StatelessWidget {
                     ),
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    backgroundColor: const Color(0xFF334155),
+                    backgroundColor: const Color(0xFF831843),
                     duration: const Duration(seconds: 2),
                   ),
                 );
@@ -94,8 +94,26 @@ class LibraryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFF8FA),
       appBar: AppBar(
-        title: const Text('Katalog Perpustakaan'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        title: const Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.menu_book_rounded, size: 20, color: Color(0xFFEC4899)),
+            SizedBox(width: 8),
+            Text(
+              'Katalog Perpustakaan',
+              style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF1E293B),
+              ),
+            ),
+          ],
+        ),
         centerTitle: false,
         actions: [
           Container(
@@ -104,9 +122,9 @@ class LibraryPage extends StatelessWidget {
               icon: const Icon(Icons.logout_rounded, size: 18),
               tooltip: 'Keluar',
               style: IconButton.styleFrom(
-                side: const BorderSide(color: Color(0xFFE2E8F0)),
-                foregroundColor: const Color(0xFF64748B),
-                backgroundColor: const Color(0xFFF8FAFC),
+                side: const BorderSide(color: Color(0xFFFCE7F3)),
+                foregroundColor: const Color(0xFFDB2777),
+                backgroundColor: const Color(0xFFFDF2F8),
               ),
               onPressed: () => _showLogoutDialog(context),
             ),
@@ -120,12 +138,12 @@ class LibraryPage extends StatelessWidget {
           // Item pertama: Header Sambutan / Ringkasan Koleksi
           if (index == 0) {
             return Container(
-              margin: const EdgeInsets.only(bottom: 16, top: 4),
-              padding: const EdgeInsets.all(16),
+              margin: const EdgeInsets.only(bottom: 14, top: 4),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: const Color(0xFFEFF6FF),
+                color: const Color(0xFFFDF2F8),
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: const Color(0xFFDBEAFE)),
+                border: Border.all(color: const Color(0xFFFCE7F3)),
               ),
               child: Row(
                 children: [
@@ -134,11 +152,12 @@ class LibraryPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: const Color(0xFFFCE7F3)),
                     ),
                     child: const Icon(
                       Icons.collections_bookmark_rounded,
-                      color: Color(0xFF2563EB),
-                      size: 24,
+                      color: Color(0xFFEC4899),
+                      size: 22,
                     ),
                   ),
                   const SizedBox(width: 14),
@@ -149,9 +168,9 @@ class LibraryPage extends StatelessWidget {
                         const Text(
                           'Koleksi Buku Pilihan',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 14.5,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF1E3A8A),
+                            color: Color(0xFF831843),
                           ),
                         ),
                         const SizedBox(height: 2),
@@ -159,7 +178,7 @@ class LibraryPage extends StatelessWidget {
                           'Tersedia ${bookList.length} buku dalam katalog saat ini',
                           style: const TextStyle(
                             fontSize: 12,
-                            color: Color(0xFF3B82F6),
+                            color: Color(0xFFBE185D),
                           ),
                         ),
                       ],
@@ -177,10 +196,10 @@ class LibraryPage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: const Color(0xFFE2E8F0)),
+              border: Border.all(color: const Color(0xFFFCE7F3)),
               boxShadow: const [
                 BoxShadow(
-                  color: Color(0x08000000),
+                  color: Color(0x06000000),
                   blurRadius: 8,
                   offset: Offset(0, 3),
                 ),
@@ -210,7 +229,7 @@ class LibraryPage extends StatelessWidget {
                           width: 76,
                           height: 110,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF1F5F9),
+                            color: const Color(0xFFFDF2F8),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Image.network(
@@ -220,15 +239,22 @@ class LibraryPage extends StatelessWidget {
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) {
                               return Container(
-                                color: const Color(0xFFF1F5F9),
+                                color: const Color(0xFFFDF2F8),
                                 child: const Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(Icons.menu_book_rounded, color: Color(0xFF94A3B8), size: 28),
+                                    Icon(
+                                      Icons.menu_book_rounded,
+                                      color: Color(0xFFF472B6),
+                                      size: 26,
+                                    ),
                                     SizedBox(height: 4),
                                     Text(
                                       'No Cover',
-                                      style: TextStyle(fontSize: 9, color: Color(0xFF94A3B8)),
+                                      style: TextStyle(
+                                        fontSize: 9,
+                                        color: Color(0xFFDB2777),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -237,14 +263,14 @@ class LibraryPage extends StatelessWidget {
                             loadingBuilder: (context, child, loadingProgress) {
                               if (loadingProgress == null) return child;
                               return Container(
-                                color: const Color(0xFFF8FAFC),
+                                color: const Color(0xFFFFF9FA),
                                 child: const Center(
                                   child: SizedBox(
                                     width: 20,
                                     height: 20,
                                     child: CircularProgressIndicator(
                                       strokeWidth: 2,
-                                      color: Color(0xFF2563EB),
+                                      color: Color(0xFFEC4899),
                                     ),
                                   ),
                                 ),
@@ -255,46 +281,51 @@ class LibraryPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 14),
 
+                      // Informasi Buku
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             // Badge Genre
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 7,
+                                vertical: 2.5,
+                              ),
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEFF6FF),
+                                color: const Color(0xFFFDF2F8),
                                 borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text(
                                 book.genre,
                                 style: const TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 10.5,
                                   fontWeight: FontWeight.w600,
-                                  color: Color(0xFF2563EB),
+                                  color: Color(0xFFDB2777),
                                 ),
                               ),
                             ),
                             const SizedBox(height: 6),
 
+                            // Judul Buku
                             Text(
                               book.title,
                               style: const TextStyle(
-                                fontSize: 15,
+                                fontSize: 14.5,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF0F172A),
+                                color: Color(0xFF1E293B),
                                 height: 1.25,
                               ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
-                            const SizedBox(height: 4),
+                            const SizedBox(height: 3),
 
                             // Penulis
                             Text(
                               book.author,
                               style: const TextStyle(
-                                fontSize: 13,
+                                fontSize: 12.5,
                                 color: Color(0xFF64748B),
                               ),
                               maxLines: 1,
@@ -306,34 +337,45 @@ class LibraryPage extends StatelessWidget {
                               children: [
                                 // Rating
                                 Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 6,
+                                    vertical: 2,
+                                  ),
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFFEF3C7),
-                                    borderRadius: BorderRadius.circular(4),
+                                    color: const Color(0xFFFDF2F8),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      const Icon(Icons.star_rounded, size: 14, color: Color(0xFFD97706)),
+                                      const Icon(
+                                        Icons.star_rounded,
+                                        size: 14,
+                                        color: Color(0xFFEC4899),
+                                      ),
                                       const SizedBox(width: 3),
                                       Text(
                                         '${book.rating}',
                                         style: const TextStyle(
                                           fontSize: 11,
                                           fontWeight: FontWeight.bold,
-                                          color: Color(0xFF92400E),
+                                          color: Color(0xFFBE185D),
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                const SizedBox(width: 10),
+                                const SizedBox(width: 12),
 
                                 // Tahun
                                 Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    const Icon(Icons.calendar_today_outlined, size: 12, color: Color(0xFF94A3B8)),
+                                    const Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 12,
+                                      color: Color(0xFFF472B6),
+                                    ),
                                     const SizedBox(width: 4),
                                     Text(
                                       '${book.year}',
@@ -356,7 +398,7 @@ class LibraryPage extends StatelessWidget {
                         child: Icon(
                           Icons.chevron_right_rounded,
                           size: 20,
-                          color: Color(0xFF94A3B8),
+                          color: Color(0xFFF472B6),
                         ),
                       ),
                     ],
@@ -370,4 +412,3 @@ class LibraryPage extends StatelessWidget {
     );
   }
 }
-

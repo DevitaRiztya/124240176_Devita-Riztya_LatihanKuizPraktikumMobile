@@ -53,7 +53,7 @@ List<BookModel> bookList = [
     pages: 310,
     rating: 4.7,
     imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/91b1Y3G2QJL.jpg",
+        "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
     bookUrl: "https://en.wikipedia.org/wiki/The_Hobbit",
   ),
 
@@ -68,7 +68,7 @@ List<BookModel> bookList = [
     pages: 432,
     rating: 4.6,
     imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/71Q1tP4e4tL.jpg",
+        "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
     bookUrl: "https://en.wikipedia.org/wiki/Pride_and_Prejudice",
   ),
 
@@ -128,7 +128,7 @@ List<BookModel> bookList = [
     pages: 281,
     rating: 4.8,
     imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/81OdwZQZ4YL.jpg",
+        "https://covers.openlibrary.org/b/isbn/9780060935467-L.jpg",
     bookUrl: "https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird",
   ),
 
@@ -143,7 +143,7 @@ List<BookModel> bookList = [
     pages: 96,
     rating: 4.9,
     imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/71OZY035QTL.jpg",
+        "https://covers.openlibrary.org/b/isbn/9780156012195-L.jpg",
     bookUrl: "https://en.wikipedia.org/wiki/The_Little_Prince",
   ),
 ];
